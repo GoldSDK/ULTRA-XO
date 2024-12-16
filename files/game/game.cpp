@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <limits>
 #include "../save/save.h"
 using namespace std;
 
@@ -69,6 +70,8 @@ void vsBot() {
 		cin >> row >> col;
 		while (!makeMove(board, row, col, currentPlayer)) {
 			cout << "Некорректный ход, попробуйте снова: ";
+			std::cin.clear();
+		        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			cin >> row >> col;
 		}
 		if (checkWin(board, currentPlayer)) {
@@ -122,6 +125,8 @@ void vsPlayer() {
 		cin >> row >> col;
 		while (!makeMove(board, row, col, currentPlayer)) {
 			cout << "Некорректный ход, попробуйте снова: ";
+			std::cin.clear();
+		        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			cin >> row >> col;
 		}
 		if (checkWin(board, currentPlayer)) {
